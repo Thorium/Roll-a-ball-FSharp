@@ -2,8 +2,7 @@
 
 Unity is a multi-platform (3d) game engine.
 
-This repository is a tutorial from Unity.
-http://unity3d.com/learn/tutorials/projects/roll-a-ball/
+This repository is the first [tutorial from Unity] (http://unity3d.com/learn/tutorials/projects/roll-a-ball/).
 
 The only difference is that F# programming language is used.
 No neat functional source code, just plain translation.
@@ -63,4 +62,4 @@ type PlayerController() =
 ### Links
 
  * [Unity] (http://unity3d.com)
- * [How to use F# libraries with Unity] https://github.com/eriksvedang/FSharp-Unity
+ * [How to use F# libraries with Unity] (https://github.com/eriksvedang/FSharp-Unity)
