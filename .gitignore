@@ -1,43 +1,51 @@
-# Windows image file caches
-Thumbs.db
+
+#ignore thumbnails created by OS
+[Tt]humbs.db
+.DS_Store*
+._*
+.Trashes
+Icon?
 ehthumbs.db
 
-# Folder config file
-Desktop.ini
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.xap
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+[Oo]bj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*/
+[Pp]ackages/
+AutoTest.Net*/
+*.sln.ide/
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+#Ignore files build by MonoDevelop
+*.user
+*.userprefs
+*.pidb
+[Ee]xported[Oo]bj/
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+#Ignore files build by Unity
+sysinfo.txt
+[Tt]emp/
+[Bb]uild
+[Ll]ibrary/
