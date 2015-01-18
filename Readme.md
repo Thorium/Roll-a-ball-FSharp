@@ -1,11 +1,11 @@
-## Unity tutorial: Roll-a-ball F#
+## Unity tutorial: Roll-a-ball F-Sharp
 
 Unity is a multi-platform (3d) game engine.
 
 This repository is a tutorial from Unity.
 http://unity3d.com/learn/tutorials/projects/roll-a-ball/
 
-The only difference is that f-sharp programming language is used.
+The only difference is that f# programming language is used.
 No neat functional source code, just plain translation.
 
 It seems that Unity doesn't lock the dlls, so you can build new versions on the fly and still Unity keeps bindings which is great.
