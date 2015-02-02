@@ -1,6 +1,9 @@
 ## Unity tutorial: Roll-a-ball F-Sharp
 
+![](ui.png)
+
 Unity is a multi-platform (3d) game engine.
+The basic version of Unity is free.
 
 This repository is the first [tutorial from Unity] (http://unity3d.com/learn/tutorials/projects/roll-a-ball/).
 
@@ -48,7 +51,7 @@ type PlayerController() =
 ```
 
  * Now, build in Visual Studio, then switch to Unity and open bin-folder from Assets. From Project-window, you should see your fsharp-dll and a little arrow on its right side to extend the details. When you press the arrow, you see the class(es) inside the component and you can directly drag and drop your class to your game object (like the ball in this tutorial). 
-![arrow[2].png](https://bitbucket.org/repo/gA5Mp8/images/3063793411-arrow%5B2%5D.png)
+![](arrow.png)
  * Then just continue the tutorial, but instead of creating every snippet a C#-file, just code F#, build the solution (in VS) and Unity notices the new modifications on the fly.
 
 ### How to get this repository code running
