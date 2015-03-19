@@ -29,7 +29,7 @@ type PlayerController() =
 
         let movement = Vector3(``move horizontal``, 0.0f, ``move vertical``)
         movement * speed * Time.deltaTime
-        |> x.rigidbody.AddForce
+        |> x.GetComponent<Rigidbody>().AddForce
 
     member x.OnTriggerEnter (other:Collider) = 
         match other.gameObject.tag with
