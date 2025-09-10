@@ -8,20 +8,22 @@ type PlayerController() =
     [<SerializeField>]
     let mutable speed = 500.0f
     [<SerializeField>]
-    let countText = Unchecked.defaultof<GUIText>
+    let mutable countText : TextMesh = Unchecked.defaultof<TextMesh>
     [<SerializeField>]
-    let winText = Unchecked.defaultof<GUIText>
+    let mutable winText : TextMesh = Unchecked.defaultof<TextMesh>
     let mutable count = 0
 
     let ``set count text`` () =
-        countText.text <- "Count: " + count.ToString()
-        if count >= 12 then
+        if isNull countText |> not then
+            countText.text <- "Count: " + count.ToString()
+        if count >= 12 && (isNull winText |> not) then
             winText.text <- "YOU WIN!"
 
     member x.Start () =
         count <- 0
         ``set count text`` ()
-        winText.text <- ""
+        if isNull winText |> not then
+            winText.text <- ""
 
     member x.FixedUpdate () =
         let ``move horizontal`` = Input.GetAxis("Horizontal");

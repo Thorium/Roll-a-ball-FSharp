@@ -50,3 +50,6 @@ sysinfo.txt
 [Bb]uild
 [Bb]uilds
 [Ll]ibrary/
+
+# F# project backup files
+*.fsproj.old
