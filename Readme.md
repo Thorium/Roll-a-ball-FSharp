@@ -5,7 +5,7 @@
 Unity is a multi-platform (3d) game engine.
 The basic version of Unity is free.
 
-This repository is the first [tutorial from Unity] (http://unity3d.com/learn/tutorials/projects/roll-a-ball/).
+This repository is the first [tutorial from Unity](https://learn.unity.com/project/roll-a-ball) (but they've changed it).
 
 The only difference is that F# programming language is used.
 No neat functional source code, just plain translation.
@@ -13,13 +13,50 @@ No neat functional source code, just plain translation.
 It seems that Unity doesn't lock the dlls, so you can build new versions on the fly and still Unity keeps bindings which is great.
 
 You have two options, a) either start from scratch or b) run this solution.
- 
-### How to make a similar solution from scratch
+
+### How to make a similar solution from scratch, update: Instructions on Unity 6000+ (2025) and VS2022
+
+They've removed the previous tutorial, and you have to now use your Unity Assets\Plugins folder, but the principle is the same:
+
+* Create a unity project and find the Assets folder of that project. Create a "Plugins" folder under that if not there already.
+* Use VS2022 to create new F# project under your Unity project's Assets\Plugins-folder as a new project. Target to .NET Standard 2.1
+* Reference UnityEngine.dll (typically found in Unity installation folder under Unity\Hub\Editor\Data\Managed\ ) and UnityEngine.UI.dll (moved to somewhere like Unity\Hub\Editor\(version)\Editor\Data\Resources\PackageManager\ProjectTemplates\libcache\(whatever)\ScriptAssemblies\ )
+* Here is a sample code, add your code and build the project:
+
+```fsharp
+namespace RollABall
+open UnityEngine
+open System
+
+type PlayerController() =
+    inherit MonoBehaviour()
+
+    [<SerializeField>]
+    let mutable speed = 6.0f
+
+    member x.FixedUpdate () =
+        let ``move horizontal`` = Input.GetAxis("Horizontal");
+        let ``move vertical`` = Input.GetAxis("Vertical")
+
+        let movement = Vector3(``move horizontal``, 0.0f, ``move vertical``)
+        movement * speed * Time.deltaTime
+        |> x.GetComponent<Rigidbody>().AddForce
+```
+
+* From Unity side, open the Unity and go to the folder where your dll is, select the dll, right click "Properties...", tick the "Validate References" unselected and "Apply".
+* Now you should see the arrow to extend your behaviours, that you can drag to your objects.
+
+<img width="666" height="320" alt="image" src="https://github.com/user-attachments/assets/6fe47fe1-945a-464e-9b7d-7c5bd8246a85" />
+
+* That's it! Happy coding. (There is also a Copilot's [PR#2](https://github.com/Thorium/Roll-a-ball-FSharp/pull/2) in this repository but I've not tried it.)
+
+
+### How to make a similar solution from scratch, old Unity v4 + VS 2015
 
  * Install some version of Unity and a Visual Studio (or MonoDevelop Add-in F# language binding)
  * Create a new Unity project as usual
    (Instead of desktop I recommend to put the project something like c:\git\Roll-a-ball )
-   [http://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up] (http://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up)
+   [http://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up](http://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up)
    But before proceeding to the second video...
  * With Visual Studio (or MonoDevelop or your favourite editor...) create a new F#-library under your Unity's project path. Un-tick the "Create directory for solution" to save one directory. (I used c:\git\Roll-a-ball and created project called GameLogic.) 
  * Add references to UnityEngine.dll (I did have it in C:\Program Files (x86)\Unity\Editor\Data\Managed\ )
@@ -29,7 +66,7 @@ You have two options, a) either start from scratch or b) run this solution.
  * For FSharp.Core, the copy-local should be "true" as Unity doesn't have it. These other core-level dll's should have that "false".
  * Write some script, e.g. like this:
 
-```
+```fsharp
 
 namespace RollABall
 open UnityEngine
